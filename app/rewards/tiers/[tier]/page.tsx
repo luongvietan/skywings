@@ -1,9 +1,16 @@
-import { notFound } from "next/navigation"
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Check } from "lucide-react"
+import { notFound } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Check } from "lucide-react";
 
 // Define tier data
 const tiers = {
@@ -13,8 +20,10 @@ const tiers = {
     textColor: "text-blue-500",
     borderColor: "border-blue-500",
     icon: "/placeholder.svg?height=100&width=100",
-    description: "Our entry-level tier with essential benefits for occasional travelers.",
-    requirements: "No minimum miles required. Join for free and start earning miles with your first flight.",
+    description:
+      "Our entry-level tier with essential benefits for occasional travelers.",
+    requirements:
+      "No minimum miles required. Join for free and start earning miles with your first flight.",
     benefits: [
       "Earn 1 mile per mile flown",
       "Access to member-only promotions",
@@ -33,7 +42,8 @@ const tiers = {
     textColor: "text-gray-500",
     borderColor: "border-gray-400",
     icon: "/placeholder.svg?height=100&width=100",
-    description: "Enhanced benefits for frequent travelers who value comfort and convenience.",
+    description:
+      "Enhanced benefits for frequent travelers who value comfort and convenience.",
     requirements: "Fly 25,000 miles or 30 segments in a calendar year.",
     benefits: [
       "All Blue tier benefits",
@@ -55,7 +65,8 @@ const tiers = {
     textColor: "text-yellow-600",
     borderColor: "border-yellow-500",
     icon: "/placeholder.svg?height=100&width=100",
-    description: "Premium benefits for our most loyal customers who travel extensively.",
+    description:
+      "Premium benefits for our most loyal customers who travel extensively.",
     requirements: "Fly 50,000 miles or 60 segments in a calendar year.",
     benefits: [
       "All Silver tier benefits",
@@ -70,17 +81,17 @@ const tiers = {
     ],
     nextTier: null,
   },
-}
+};
 
 export default function TierPage({ params }: { params: { tier: string } }) {
-  const tier = params.tier.toLowerCase()
+  const tier = params.tier.toLowerCase();
 
   // Check if tier exists
   if (!tiers[tier as keyof typeof tiers]) {
-    notFound()
+    notFound();
   }
 
-  const tierData = tiers[tier as keyof typeof tiers]
+  const tierData = tiers[tier as keyof typeof tiers];
 
   return (
     <main className="container mx-auto px-4 py-12">
@@ -97,7 +108,9 @@ export default function TierPage({ params }: { params: { tier: string } }) {
           </div>
 
           <div className="flex-1 text-center md:text-left">
-            <h1 className={`text-4xl font-bold mb-2 ${tierData.textColor}`}>SkyRewards {tierData.name} Tier</h1>
+            <h1 className={`text-4xl font-bold mb-2 ${tierData.textColor}`}>
+              SkyRewards {tierData.name} Tier
+            </h1>
             <p className="text-xl text-gray-600 mb-4">{tierData.description}</p>
             <div className="inline-block bg-gray-100 px-4 py-2 rounded-lg">
               <h3 className="font-semibold text-gray-700">Requirements</h3>
@@ -110,8 +123,13 @@ export default function TierPage({ params }: { params: { tier: string } }) {
           <h2 className="text-2xl font-bold mb-6">Exclusive Benefits</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {tierData.benefits.map((benefit, index) => (
-              <div key={index} className="flex items-start gap-3 p-3 bg-white rounded-lg shadow-sm">
-                <div className={`rounded-full p-1 ${tierData.color} flex-shrink-0`}>
+              <div
+                key={index}
+                className="flex items-start gap-3 p-3 bg-white rounded-lg shadow-sm"
+              >
+                <div
+                  className={`rounded-full p-1 ${tierData.color} flex-shrink-0`}
+                >
                   <Check className="h-5 w-5 text-white" />
                 </div>
                 <span className="text-gray-700">{benefit}</span>
@@ -124,15 +142,21 @@ export default function TierPage({ params }: { params: { tier: string } }) {
           <Card className="mb-12 border-2 border-dashed border-gray-300">
             <CardHeader>
               <CardTitle>Ready for an Upgrade?</CardTitle>
-              <CardDescription>Unlock even more benefits with our {tierData.nextTier.name} tier.</CardDescription>
+              <CardDescription>
+                Unlock even more benefits with our {tierData.nextTier.name}{" "}
+                tier.
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-gray-700">
-                <strong>How to qualify:</strong> {tierData.nextTier.requirements}
+                <strong>How to qualify:</strong>{" "}
+                {tierData.nextTier.requirements}
               </p>
             </CardContent>
             <CardFooter>
-              <Link href={`/rewards/tiers/${tierData.nextTier.name.toLowerCase()}`}>
+              <Link
+                href={`/rewards/tier/${tierData.nextTier.name.toLowerCase()}`}
+              >
                 <Button className="bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-600 hover:to-indigo-700">
                   Explore {tierData.nextTier.name} Benefits
                 </Button>
@@ -146,12 +170,14 @@ export default function TierPage({ params }: { params: { tier: string } }) {
             <CardHeader>
               <CardTitle>Track Your Progress</CardTitle>
               <CardDescription>
-                Monitor your miles and flight segments to maintain or upgrade your tier status.
+                Monitor your miles and flight segments to maintain or upgrade
+                your tier status.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-gray-700 mb-4">
-                Sign in to your account to view your current progress toward tier qualification.
+                Sign in to your account to view your current progress toward
+                tier qualification.
               </p>
             </CardContent>
             <CardFooter>
@@ -164,10 +190,15 @@ export default function TierPage({ params }: { params: { tier: string } }) {
           <Card>
             <CardHeader>
               <CardTitle>Calculate Your Miles</CardTitle>
-              <CardDescription>Estimate how many miles you'll earn on your next flight.</CardDescription>
+              <CardDescription>
+                Estimate how many miles you'll earn on your next flight.
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-gray-700 mb-4">Use our miles calculator to plan your tier qualification strategy.</p>
+              <p className="text-gray-700 mb-4">
+                Use our miles calculator to plan your tier qualification
+                strategy.
+              </p>
             </CardContent>
             <CardFooter>
               <Link href="/rewards/calculator">
@@ -178,6 +209,5 @@ export default function TierPage({ params }: { params: { tier: string } }) {
         </div>
       </div>
     </main>
-  )
+  );
 }
-

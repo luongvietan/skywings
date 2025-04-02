@@ -1,6 +1,13 @@
-import Link from "next/link"
-import { Facebook, Twitter, Instagram, Linkedin, CreditCard, Shield } from "lucide-react"
-import Logo from "@/components/ui/logo"
+import Link from "next/link";
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  CreditCard,
+  Shield,
+} from "lucide-react";
+import Logo from "@/components/ui/logo";
 
 export default function MainFooter() {
   return (
@@ -8,24 +15,37 @@ export default function MainFooter() {
       <div className="container px-4 py-12 md:py-16">
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
           <div className="flex flex-col gap-4">
-            <Logo variant="white" />
+            <Logo variant="white" className=" text-sky-200" />
             <p className="text-sm text-sky-200">
-              The complete flight booking platform with 100+ airline partners worldwide.
+              The complete flight booking platform with 100+ airline partners
+              worldwide.
             </p>
             <div className="flex gap-4">
-              <Link href="#" className="text-sky-200 hover:text-white">
+              <Link
+                href="https://www.facebook.com/Duelurker/"
+                className="text-sky-200 hover:text-white"
+              >
                 <Facebook className="h-5 w-5" />
                 <span className="sr-only">Facebook</span>
               </Link>
-              <Link href="#" className="text-sky-200 hover:text-white">
+              <Link
+                href="https://www.x.com/Duelurker/"
+                className="text-sky-200 hover:text-white"
+              >
                 <Twitter className="h-5 w-5" />
                 <span className="sr-only">Twitter</span>
               </Link>
-              <Link href="#" className="text-sky-200 hover:text-white">
+              <Link
+                href="https://www.instagram.com/Duelurker/"
+                className="text-sky-200 hover:text-white"
+              >
                 <Instagram className="h-5 w-5" />
                 <span className="sr-only">Instagram</span>
               </Link>
-              <Link href="#" className="text-sky-200 hover:text-white">
+              <Link
+                href="https://www.linkedin.com/Duelurker/"
+                className="text-sky-200 hover:text-white"
+              >
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
@@ -36,27 +56,42 @@ export default function MainFooter() {
             <h3 className="mb-4 text-lg font-semibold">Flights</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/flights/search" className="text-sky-200 hover:text-white">
+                <Link
+                  href="/flights/search"
+                  className="text-sky-200 hover:text-white"
+                >
                   Search Flights
                 </Link>
               </li>
               <li>
-                <Link href="/flights/deals" className="text-sky-200 hover:text-white">
+                <Link
+                  href="/flights/deals"
+                  className="text-sky-200 hover:text-white"
+                >
                   Flight Deals
                 </Link>
               </li>
               <li>
-                <Link href="/flights/flexible" className="text-sky-200 hover:text-white">
+                <Link
+                  href="/flights/flexible"
+                  className="text-sky-200 hover:text-white"
+                >
                   Flexible Dates
                 </Link>
               </li>
               <li>
-                <Link href="/flights/routes" className="text-sky-200 hover:text-white">
+                <Link
+                  href="/flights/routes"
+                  className="text-sky-200 hover:text-white"
+                >
                   Popular Routes
                 </Link>
               </li>
               <li>
-                <Link href="/flights/low-fare" className="text-sky-200 hover:text-white">
+                <Link
+                  href="/flights/low-fare"
+                  className="text-sky-200 hover:text-white"
+                >
                   Low Fare Calendar
                 </Link>
               </li>
@@ -67,27 +102,42 @@ export default function MainFooter() {
             <h3 className="mb-4 text-lg font-semibold">Airlines</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/airlines" className="text-sky-200 hover:text-white">
+                <Link
+                  href="/airlines"
+                  className="text-sky-200 hover:text-white"
+                >
                   All Airlines
                 </Link>
               </li>
               <li>
-                <Link href="/airlines/alliances" className="text-sky-200 hover:text-white">
+                <Link
+                  href="/airlines/alliances"
+                  className="text-sky-200 hover:text-white"
+                >
                   Airline Alliances
                 </Link>
               </li>
               <li>
-                <Link href="/airlines/emirates" className="text-sky-200 hover:text-white">
+                <Link
+                  href="/airlines/emirates"
+                  className="text-sky-200 hover:text-white"
+                >
                   Emirates
                 </Link>
               </li>
               <li>
-                <Link href="/airlines/delta" className="text-sky-200 hover:text-white">
+                <Link
+                  href="/airlines/delta"
+                  className="text-sky-200 hover:text-white"
+                >
                   Delta
                 </Link>
               </li>
               <li>
-                <Link href="/airlines/singapore-airlines" className="text-sky-200 hover:text-white">
+                <Link
+                  href="/airlines/singapore-airlines"
+                  className="text-sky-200 hover:text-white"
+                >
                   Singapore Airlines
                 </Link>
               </li>
@@ -103,22 +153,34 @@ export default function MainFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/rewards/tiers" className="text-sky-200 hover:text-white">
+                <Link
+                  href="/rewards/tier"
+                  className="text-sky-200 hover:text-white"
+                >
                   Membership Tiers
                 </Link>
               </li>
               <li>
-                <Link href="/rewards/calculator" className="text-sky-200 hover:text-white">
+                <Link
+                  href="/rewards/calculator"
+                  className="text-sky-200 hover:text-white"
+                >
                   Miles Calculator
                 </Link>
               </li>
               <li>
-                <Link href="/rewards/redeem" className="text-sky-200 hover:text-white">
+                <Link
+                  href="/rewards/redeem"
+                  className="text-sky-200 hover:text-white"
+                >
                   Redeem Miles
                 </Link>
               </li>
               <li>
-                <Link href="/rewards/card" className="text-sky-200 hover:text-white">
+                <Link
+                  href="/rewards/card"
+                  className="text-sky-200 hover:text-white"
+                >
                   SkyRewards Card
                 </Link>
               </li>
@@ -134,7 +196,10 @@ export default function MainFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/business" className="text-sky-200 hover:text-white">
+                <Link
+                  href="/business"
+                  className="text-sky-200 hover:text-white"
+                >
                   Business Travel
                 </Link>
               </li>
@@ -187,10 +252,11 @@ export default function MainFooter() {
             </div>
           </div>
 
-          <div className="mt-6 text-sm text-sky-300">© {new Date().getFullYear()} SkyBooker. All rights reserved.</div>
+          <div className="mt-6 text-sm text-sky-300">
+            © {new Date().getFullYear()} SkyBooker. All rights reserved.
+          </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }
-

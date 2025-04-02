@@ -1,19 +1,25 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Search, Filter, Globe, Star } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { Search, Filter, Globe, Star } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // Sample airline data
 const airlines = [
   {
     id: "emirates",
     name: "Emirates",
-    logo: "https://images.unsplash.com/photo-1540339832862-474599807836?q=80&w=200&auto=format&fit=crop",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Emirates_logo.svg/850px-Emirates_logo.svg.png?q=80&w=200&auto=format&fit=crop",
     alliance: "None",
     rating: 4.7,
     routes: 157,
@@ -22,7 +28,7 @@ const airlines = [
   {
     id: "singapore-airlines",
     name: "Singapore Airlines",
-    logo: "https://images.unsplash.com/photo-1583511380487-b5e348837783?q=80&w=200&auto=format&fit=crop",
+    logo: "https://s3-symbol-logo.tradingview.com/singapore-airlines--600.png",
     alliance: "Star Alliance",
     rating: 4.8,
     routes: 137,
@@ -31,7 +37,7 @@ const airlines = [
   {
     id: "delta",
     name: "Delta Air Lines",
-    logo: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?q=80&w=200&auto=format&fit=crop",
+    logo: "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0011/6343/brand.gif?itok=iSd6wBZZ",
     alliance: "SkyTeam",
     rating: 4.5,
     routes: 325,
@@ -40,7 +46,7 @@ const airlines = [
   {
     id: "lufthansa",
     name: "Lufthansa",
-    logo: "https://images.unsplash.com/photo-1540339832862-474599807836?q=80&w=200&auto=format&fit=crop",
+    logo: "https://s.pilotsglobal.com/img/3/b/b/0/8/3bb08d41b60054cc4ed5b4bada0a7e1b.svg",
     alliance: "Star Alliance",
     rating: 4.6,
     routes: 220,
@@ -49,7 +55,7 @@ const airlines = [
   {
     id: "qatar-airways",
     name: "Qatar Airways",
-    logo: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=200&auto=format&fit=crop",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw7HLjWJ68NPeAaD9kXjGad1LROdcWHJj_tw&s",
     alliance: "Oneworld",
     rating: 4.7,
     routes: 170,
@@ -58,7 +64,7 @@ const airlines = [
   {
     id: "british-airways",
     name: "British Airways",
-    logo: "https://images.unsplash.com/photo-1583511380487-b5e348837783?q=80&w=200&auto=format&fit=crop",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNp8EmoVrOGN5M6Bc_qGizBYlYW190xCHALQ&s",
     alliance: "Oneworld",
     rating: 4.4,
     routes: 180,
@@ -67,7 +73,7 @@ const airlines = [
   {
     id: "air-france",
     name: "Air France",
-    logo: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?q=80&w=200&auto=format&fit=crop",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb-VcKXn2_IQFcoPsRctKazojHYuSD2AvZww&s",
     alliance: "SkyTeam",
     rating: 4.3,
     routes: 195,
@@ -76,7 +82,7 @@ const airlines = [
   {
     id: "klm",
     name: "KLM",
-    logo: "https://images.unsplash.com/photo-1540339832862-474599807836?q=80&w=200&auto=format&fit=crop",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrFftovudrgfqjvHyqXZrGLGJ2ukNDPjWuwA&s",
     alliance: "SkyTeam",
     rating: 4.4,
     routes: 165,
@@ -85,7 +91,7 @@ const airlines = [
   {
     id: "united",
     name: "United Airlines",
-    logo: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=200&auto=format&fit=crop",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh834z5G6nsuQF07Ow_2na_pvALvItKBPBKg&s",
     alliance: "Star Alliance",
     rating: 4.2,
     routes: 280,
@@ -94,7 +100,7 @@ const airlines = [
   {
     id: "american-airlines",
     name: "American Airlines",
-    logo: "https://images.unsplash.com/photo-1583511380487-b5e348837783?q=80&w=200&auto=format&fit=crop",
+    logo: "https://s202.q4cdn.com/986123435/files/doc_downloads/logos/american-airlines/THUMB-aa_aa__ahz_4cp_grd_pos-(1).png",
     alliance: "Oneworld",
     rating: 4.1,
     routes: 290,
@@ -103,7 +109,7 @@ const airlines = [
   {
     id: "qantas",
     name: "Qantas",
-    logo: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?q=80&w=200&auto=format&fit=crop",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUbFv1UPyitpkDpMjsQiyRCzo1jZAbQvFTeA&s",
     alliance: "Oneworld",
     rating: 4.5,
     routes: 85,
@@ -112,22 +118,25 @@ const airlines = [
   {
     id: "cathay-pacific",
     name: "Cathay Pacific",
-    logo: "https://images.unsplash.com/photo-1540339832862-474599807836?q=80&w=200&auto=format&fit=crop",
+    logo: "https://brandlogos.net/wp-content/uploads/2014/01/cathay-pacific-air-vector-logo.png",
     alliance: "Oneworld",
     rating: 4.6,
     routes: 130,
     featured: false,
   },
-]
+];
 
 export default function AirlinesPage() {
   return (
     <div className="container px-4 py-8 md:px-6 md:py-12">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight mb-2">Our Airline Partners</h1>
+        <h1 className="text-3xl font-bold tracking-tight mb-2">
+          Our Airline Partners
+        </h1>
         <p className="text-muted-foreground max-w-3xl">
-          SkyBooker partners with over 100 airlines worldwide to bring you the best flight options and exclusive deals.
-          Browse our airline partners below or search for specific airlines.
+          SkyBooker partners with over 100 airlines worldwide to bring you the
+          best flight options and exclusive deals. Browse our airline partners
+          below or search for specific airlines.
         </p>
       </div>
 
@@ -144,19 +153,34 @@ export default function AirlinesPage() {
 
       <Tabs defaultValue="all" className="w-full mb-8">
         <TabsList className="w-full flex flex-wrap h-auto p-0 bg-transparent gap-2">
-          <TabsTrigger value="all" className="data-[state=active]:bg-sky-100 data-[state=active]:text-sky-800">
+          <TabsTrigger
+            value="all"
+            className="data-[state=active]:bg-sky-100 data-[state=active]:text-sky-800"
+          >
             All Airlines
           </TabsTrigger>
-          <TabsTrigger value="star" className="data-[state=active]:bg-sky-100 data-[state=active]:text-sky-800">
+          <TabsTrigger
+            value="star"
+            className="data-[state=active]:bg-sky-100 data-[state=active]:text-sky-800"
+          >
             Star Alliance
           </TabsTrigger>
-          <TabsTrigger value="skyteam" className="data-[state=active]:bg-sky-100 data-[state=active]:text-sky-800">
+          <TabsTrigger
+            value="skyteam"
+            className="data-[state=active]:bg-sky-100 data-[state=active]:text-sky-800"
+          >
             SkyTeam
           </TabsTrigger>
-          <TabsTrigger value="oneworld" className="data-[state=active]:bg-sky-100 data-[state=active]:text-sky-800">
+          <TabsTrigger
+            value="oneworld"
+            className="data-[state=active]:bg-sky-100 data-[state=active]:text-sky-800"
+          >
             Oneworld
           </TabsTrigger>
-          <TabsTrigger value="independent" className="data-[state=active]:bg-sky-100 data-[state=active]:text-sky-800">
+          <TabsTrigger
+            value="independent"
+            className="data-[state=active]:bg-sky-100 data-[state=active]:text-sky-800"
+          >
             Independent
           </TabsTrigger>
         </TabsList>
@@ -172,38 +196,55 @@ export default function AirlinesPage() {
                     <div className="p-6 flex items-center gap-4">
                       <div className="w-16 h-16 rounded-lg border flex items-center justify-center p-2 bg-white">
                         <Image
-                          src={airline.logo || "/placeholder.svg"}
-                          width={50}
-                          height={50}
+                          src={airline.logo}
+                          width={64}
+                          height={64}
                           alt={`${airline.name} logo`}
-                          className="object-contain"
+                          className="object-contain w-full h-full"
+                          priority
                         />
                       </div>
                       <div>
-                        <CardTitle className="text-xl">{airline.name}</CardTitle>
+                        <CardTitle className="text-xl">
+                          {airline.name}
+                        </CardTitle>
                         <div className="flex items-center gap-2 mt-1">
                           <div className="flex">
                             {[1, 2, 3, 4, 5].map((star) => (
                               <Star
                                 key={star}
-                                className={`h-4 w-4 ${star <= Math.floor(airline.rating) ? "fill-current text-yellow-500" : "text-gray-300"}`}
+                                className={`h-4 w-4 ${
+                                  star <= Math.floor(airline.rating)
+                                    ? "fill-current text-yellow-500"
+                                    : "text-gray-300"
+                                }`}
                               />
                             ))}
                           </div>
-                          <span className="text-sm text-muted-foreground">{airline.rating}</span>
+                          <span className="text-sm text-muted-foreground">
+                            {airline.rating}
+                          </span>
                         </div>
                         <div className="flex items-center gap-2 mt-1">
                           <Badge variant="outline">
-                            {airline.alliance === "None" ? "Independent" : airline.alliance}
+                            {airline.alliance === "None"
+                              ? "Independent"
+                              : airline.alliance}
                           </Badge>
-                          <span className="text-xs text-muted-foreground">{airline.routes} destinations</span>
+                          <span className="text-xs text-muted-foreground">
+                            {airline.routes} destinations
+                          </span>
                         </div>
                       </div>
                     </div>
                     <div className="bg-muted p-4 flex justify-between items-center">
-                      <span className="text-sm font-medium">View deals & routes</span>
+                      <span className="text-sm font-medium">
+                        View deals & routes
+                      </span>
                       <Button size="sm" asChild>
-                        <Link href={`/airlines/${airline.id}`}>View Details</Link>
+                        <Link href={`/airlines/${airline.id}`}>
+                          View Details
+                        </Link>
                       </Button>
                     </div>
                   </Card>
@@ -214,23 +255,31 @@ export default function AirlinesPage() {
           <h2 className="text-2xl font-bold mb-4">All Airline Partners</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {airlines.map((airline) => (
-              <Link key={airline.id} href={`/airlines/${airline.id}`} className="group">
+              <Link
+                key={airline.id}
+                href={`/airlines/${airline.id}`}
+                className="group"
+              >
                 <Card className="h-full transition-all group-hover:border-sky-200 group-hover:shadow-md">
                   <CardContent className="p-4 flex items-center gap-3">
                     <div className="w-12 h-12 rounded-lg border flex items-center justify-center p-1 bg-white">
                       <Image
-                        src={airline.logo || "/placeholder.svg"}
-                        width={30}
-                        height={30}
+                        src={airline.logo}
+                        width={48}
+                        height={48}
                         alt={`${airline.name} logo`}
-                        className="object-contain"
+                        className="object-contain w-full h-full"
                       />
                     </div>
                     <div>
-                      <h3 className="font-medium group-hover:text-sky-700">{airline.name}</h3>
+                      <h3 className="font-medium group-hover:text-sky-700">
+                        {airline.name}
+                      </h3>
                       <div className="flex items-center gap-1">
                         <Star className="h-3 w-3 fill-current text-yellow-500" />
-                        <span className="text-xs text-muted-foreground">{airline.rating}</span>
+                        <span className="text-xs text-muted-foreground">
+                          {airline.rating}
+                        </span>
                       </div>
                     </div>
                   </CardContent>
@@ -245,23 +294,31 @@ export default function AirlinesPage() {
             {airlines
               .filter((airline) => airline.alliance === "Star Alliance")
               .map((airline) => (
-                <Link key={airline.id} href={`/airlines/${airline.id}`} className="group">
+                <Link
+                  key={airline.id}
+                  href={`/airlines/${airline.id}`}
+                  className="group"
+                >
                   <Card className="h-full transition-all group-hover:border-sky-200 group-hover:shadow-md">
                     <CardContent className="p-4 flex items-center gap-3">
                       <div className="w-12 h-12 rounded-lg border flex items-center justify-center p-1 bg-white">
                         <Image
-                          src={airline.logo || "/placeholder.svg"}
-                          width={30}
-                          height={30}
+                          src={airline.logo}
+                          width={48}
+                          height={48}
                           alt={`${airline.name} logo`}
-                          className="object-contain"
+                          className="object-contain w-full h-full"
                         />
                       </div>
                       <div>
-                        <h3 className="font-medium group-hover:text-sky-700">{airline.name}</h3>
+                        <h3 className="font-medium group-hover:text-sky-700">
+                          {airline.name}
+                        </h3>
                         <div className="flex items-center gap-1">
                           <Star className="h-3 w-3 fill-current text-yellow-500" />
-                          <span className="text-xs text-muted-foreground">{airline.rating}</span>
+                          <span className="text-xs text-muted-foreground">
+                            {airline.rating}
+                          </span>
                         </div>
                       </div>
                     </CardContent>
@@ -276,23 +333,31 @@ export default function AirlinesPage() {
             {airlines
               .filter((airline) => airline.alliance === "SkyTeam")
               .map((airline) => (
-                <Link key={airline.id} href={`/airlines/${airline.id}`} className="group">
+                <Link
+                  key={airline.id}
+                  href={`/airlines/${airline.id}`}
+                  className="group"
+                >
                   <Card className="h-full transition-all group-hover:border-sky-200 group-hover:shadow-md">
                     <CardContent className="p-4 flex items-center gap-3">
                       <div className="w-12 h-12 rounded-lg border flex items-center justify-center p-1 bg-white">
                         <Image
-                          src={airline.logo || "/placeholder.svg"}
-                          width={30}
-                          height={30}
+                          src={airline.logo}
+                          width={48}
+                          height={48}
                           alt={`${airline.name} logo`}
-                          className="object-contain"
+                          className="object-contain w-full h-full"
                         />
                       </div>
                       <div>
-                        <h3 className="font-medium group-hover:text-sky-700">{airline.name}</h3>
+                        <h3 className="font-medium group-hover:text-sky-700">
+                          {airline.name}
+                        </h3>
                         <div className="flex items-center gap-1">
                           <Star className="h-3 w-3 fill-current text-yellow-500" />
-                          <span className="text-xs text-muted-foreground">{airline.rating}</span>
+                          <span className="text-xs text-muted-foreground">
+                            {airline.rating}
+                          </span>
                         </div>
                       </div>
                     </CardContent>
@@ -307,23 +372,31 @@ export default function AirlinesPage() {
             {airlines
               .filter((airline) => airline.alliance === "Oneworld")
               .map((airline) => (
-                <Link key={airline.id} href={`/airlines/${airline.id}`} className="group">
+                <Link
+                  key={airline.id}
+                  href={`/airlines/${airline.id}`}
+                  className="group"
+                >
                   <Card className="h-full transition-all group-hover:border-sky-200 group-hover:shadow-md">
                     <CardContent className="p-4 flex items-center gap-3">
                       <div className="w-12 h-12 rounded-lg border flex items-center justify-center p-1 bg-white">
                         <Image
-                          src={airline.logo || "/placeholder.svg"}
-                          width={30}
-                          height={30}
+                          src={airline.logo}
+                          width={48}
+                          height={48}
                           alt={`${airline.name} logo`}
-                          className="object-contain"
+                          className="object-contain w-full h-full"
                         />
                       </div>
                       <div>
-                        <h3 className="font-medium group-hover:text-sky-700">{airline.name}</h3>
+                        <h3 className="font-medium group-hover:text-sky-700">
+                          {airline.name}
+                        </h3>
                         <div className="flex items-center gap-1">
                           <Star className="h-3 w-3 fill-current text-yellow-500" />
-                          <span className="text-xs text-muted-foreground">{airline.rating}</span>
+                          <span className="text-xs text-muted-foreground">
+                            {airline.rating}
+                          </span>
                         </div>
                       </div>
                     </CardContent>
@@ -338,23 +411,31 @@ export default function AirlinesPage() {
             {airlines
               .filter((airline) => airline.alliance === "None")
               .map((airline) => (
-                <Link key={airline.id} href={`/airlines/${airline.id}`} className="group">
+                <Link
+                  key={airline.id}
+                  href={`/airlines/${airline.id}`}
+                  className="group"
+                >
                   <Card className="h-full transition-all group-hover:border-sky-200 group-hover:shadow-md">
                     <CardContent className="p-4 flex items-center gap-3">
                       <div className="w-12 h-12 rounded-lg border flex items-center justify-center p-1 bg-white">
                         <Image
-                          src={airline.logo || "/placeholder.svg"}
-                          width={30}
-                          height={30}
+                          src={airline.logo}
+                          width={48}
+                          height={48}
                           alt={`${airline.name} logo`}
-                          className="object-contain"
+                          className="object-contain w-full h-full"
                         />
                       </div>
                       <div>
-                        <h3 className="font-medium group-hover:text-sky-700">{airline.name}</h3>
+                        <h3 className="font-medium group-hover:text-sky-700">
+                          {airline.name}
+                        </h3>
                         <div className="flex items-center gap-1">
                           <Star className="h-3 w-3 fill-current text-yellow-500" />
-                          <span className="text-xs text-muted-foreground">{airline.rating}</span>
+                          <span className="text-xs text-muted-foreground">
+                            {airline.rating}
+                          </span>
                         </div>
                       </div>
                     </CardContent>
@@ -377,8 +458,8 @@ export default function AirlinesPage() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground mb-4">
-                The world's largest airline alliance with 26 member airlines, offering service to over 1,300
-                destinations in 195 countries.
+                The world's largest airline alliance with 26 member airlines,
+                offering service to over 1,300 destinations in 195 countries.
               </p>
               <div className="flex flex-wrap gap-2">
                 {airlines
@@ -390,7 +471,11 @@ export default function AirlinesPage() {
                     </Badge>
                   ))}
                 <Badge variant="outline">
-                  +{airlines.filter((airline) => airline.alliance === "Star Alliance").length - 3} more
+                  +
+                  {airlines.filter(
+                    (airline) => airline.alliance === "Star Alliance"
+                  ).length - 3}{" "}
+                  more
                 </Badge>
               </div>
             </CardContent>
@@ -410,8 +495,8 @@ export default function AirlinesPage() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground mb-4">
-                A global airline alliance with 19 member airlines, providing service to over 1,150 destinations in 175
-                countries.
+                A global airline alliance with 19 member airlines, providing
+                service to over 1,150 destinations in 175 countries.
               </p>
               <div className="flex flex-wrap gap-2">
                 {airlines
@@ -423,7 +508,10 @@ export default function AirlinesPage() {
                     </Badge>
                   ))}
                 <Badge variant="outline">
-                  +{airlines.filter((airline) => airline.alliance === "SkyTeam").length - 3} more
+                  +
+                  {airlines.filter((airline) => airline.alliance === "SkyTeam")
+                    .length - 3}{" "}
+                  more
                 </Badge>
               </div>
             </CardContent>
@@ -443,8 +531,9 @@ export default function AirlinesPage() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground mb-4">
-                An alliance of 14 leading airlines committed to providing the highest level of service to over 1,000
-                destinations in 170 countries.
+                An alliance of 14 leading airlines committed to providing the
+                highest level of service to over 1,000 destinations in 170
+                countries.
               </p>
               <div className="flex flex-wrap gap-2">
                 {airlines
@@ -456,7 +545,10 @@ export default function AirlinesPage() {
                     </Badge>
                   ))}
                 <Badge variant="outline">
-                  +{airlines.filter((airline) => airline.alliance === "Oneworld").length - 3} more
+                  +
+                  {airlines.filter((airline) => airline.alliance === "Oneworld")
+                    .length - 3}{" "}
+                  more
                 </Badge>
               </div>
             </CardContent>
@@ -473,13 +565,18 @@ export default function AirlinesPage() {
         <div className="bg-sky-50 rounded-xl p-6 md:p-8">
           <div className="grid gap-6 md:grid-cols-2 items-center">
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold">Become a SkyBooker Airline Partner</h2>
+              <h2 className="text-2xl font-bold">
+                Become a SkyBooker Airline Partner
+              </h2>
               <p className="text-muted-foreground">
-                Are you an airline looking to expand your reach? Partner with SkyBooker to access millions of travelers
-                worldwide and increase your bookings.
+                Are you an airline looking to expand your reach? Partner with
+                SkyBooker to access millions of travelers worldwide and increase
+                your bookings.
               </p>
               <Button asChild>
-                <Link href="/airlines/partner-program">Learn About Our Partner Program</Link>
+                <Link href="/airlines/partner-program">
+                  Learn About Our Partner Program
+                </Link>
               </Button>
             </div>
             <div className="relative h-[200px] rounded-lg overflow-hidden">
@@ -494,6 +591,5 @@ export default function AirlinesPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }
-

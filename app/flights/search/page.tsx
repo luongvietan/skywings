@@ -1,19 +1,21 @@
-import { Search, Filter, Clock, Shield, CreditCard } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import { Search, Filter, Clock, Shield, CreditCard } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Slider } from "@/components/ui/slider"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Slider } from "@/components/ui/slider";
 
 export default function FlightSearchPage() {
   return (
     <div className="container px-4 py-8 md:px-6 md:py-12">
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight">Search Flights</h1>
-        <p className="text-muted-foreground">Find the best flights from over 100 airlines</p>
+        <p className="text-muted-foreground">
+          Find the best flights from over 100 airlines
+        </p>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[300px_1fr]">
@@ -30,7 +32,13 @@ export default function FlightSearchPage() {
               <div className="space-y-4">
                 <h3 className="font-medium">Airlines</h3>
                 <div className="space-y-2">
-                  {["Emirates", "Singapore Airlines", "Delta", "Lufthansa", "Qatar Airways"].map((airline) => (
+                  {[
+                    "Emirates",
+                    "Singapore Airlines",
+                    "Delta",
+                    "Lufthansa",
+                    "Qatar Airways",
+                  ].map((airline) => (
                     <div key={airline} className="flex items-center space-x-2">
                       <Checkbox id={`airline-${airline}`} />
                       <label
@@ -64,17 +72,22 @@ export default function FlightSearchPage() {
               <div className="space-y-4">
                 <h3 className="font-medium">Ticket Type</h3>
                 <div className="space-y-2">
-                  {["Economy", "Premium Economy", "Business", "First"].map((ticketType) => (
-                    <div key={ticketType} className="flex items-center space-x-2">
-                      <Checkbox id={`ticket-${ticketType}`} />
-                      <label
-                        htmlFor={`ticket-${ticketType}`}
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  {["Economy", "Premium Economy", "Business", "First"].map(
+                    (ticketType) => (
+                      <div
+                        key={ticketType}
+                        className="flex items-center space-x-2"
                       >
-                        {ticketType}
-                      </label>
-                    </div>
-                  ))}
+                        <Checkbox id={`ticket-${ticketType}`} />
+                        <label
+                          htmlFor={`ticket-${ticketType}`}
+                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        >
+                          {ticketType}
+                        </label>
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
 
@@ -84,7 +97,8 @@ export default function FlightSearchPage() {
                   <Checkbox id="flexible-tickets" />
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  Show only flights with flexible change and cancellation policies
+                  Show only flights with flexible change and cancellation
+                  policies
                 </p>
               </div>
 
@@ -124,11 +138,17 @@ export default function FlightSearchPage() {
             <div className="grid gap-4 md:grid-cols-[2fr_2fr_1fr_auto]">
               <div className="space-y-2">
                 <label className="text-sm font-medium">From</label>
-                <Input placeholder="City or Airport" defaultValue="New York (JFK)" />
+                <Input
+                  placeholder="City or Airport"
+                  defaultValue="New York (JFK)"
+                />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium">To</label>
-                <Input placeholder="City or Airport" defaultValue="London (LHR)" />
+                <Input
+                  placeholder="City or Airport"
+                  defaultValue="London (LHR)"
+                />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium">Date</label>
@@ -160,7 +180,7 @@ export default function FlightSearchPage() {
           {[
             {
               airline: "British Airways",
-              logo: "https://images.unsplash.com/photo-1583511380487-b5e348837783?q=80&w=100&auto=format&fit=crop",
+              logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNp8EmoVrOGN5M6Bc_qGizBYlYW190xCHALQ&s",
               departure: "08:30",
               arrival: "20:45",
               duration: "7h 15m",
@@ -170,7 +190,7 @@ export default function FlightSearchPage() {
             },
             {
               airline: "Delta",
-              logo: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?q=80&w=100&auto=format&fit=crop",
+              logo: "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0011/6343/brand.gif?itok=iSd6wBZZ",
               departure: "10:15",
               arrival: "22:30",
               duration: "7h 15m",
@@ -180,7 +200,7 @@ export default function FlightSearchPage() {
             },
             {
               airline: "Emirates",
-              logo: "https://images.unsplash.com/photo-1540339832862-474599807836?q=80&w=100&auto=format&fit=crop",
+              logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Emirates_logo.svg/850px-Emirates_logo.svg.png?q=80&w=200&auto=format&fit=crop",
               departure: "14:20",
               arrival: "02:35",
               duration: "7h 15m",
@@ -214,13 +234,17 @@ export default function FlightSearchPage() {
                   </div>
 
                   <div className="flex flex-col items-center">
-                    <div className="text-sm text-muted-foreground">{flight.duration}</div>
+                    <div className="text-sm text-muted-foreground">
+                      {flight.duration}
+                    </div>
                     <div className="relative w-24 md:w-40">
                       <div className="absolute inset-0 flex items-center">
                         <div className="w-full border-t border-muted"></div>
                       </div>
                       <div className="relative flex justify-center">
-                        <div className="bg-background px-2 text-xs text-muted-foreground">{flight.stops}</div>
+                        <div className="bg-background px-2 text-xs text-muted-foreground">
+                          {flight.stops}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -270,6 +294,5 @@ export default function FlightSearchPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

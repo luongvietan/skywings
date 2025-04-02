@@ -1,11 +1,18 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Globe, MapPin, Star, Shield, Award } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { Globe, MapPin, Star, Shield, Award } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
 
 // This is a mock function to simulate getting airline data
 // In a real app, this would fetch from an API or database
@@ -13,7 +20,7 @@ function getAirlineData(slug: string) {
   const airlines = {
     emirates: {
       name: "Emirates",
-      logo: "https://images.unsplash.com/photo-1540339832862-474599807836?q=80&w=200&auto=format&fit=crop",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Emirates_logo.svg/850px-Emirates_logo.svg.png?q=80&w=200&auto=format&fit=crop",
       alliance: "None",
       hubs: ["Dubai (DXB)"],
       destinations: 157,
@@ -21,7 +28,8 @@ function getAirlineData(slug: string) {
       founded: 1985,
       description:
         "Emirates is the largest airline in the Middle East, operating over 3,600 flights per week from its hub at Dubai International Airport. Known for its luxury service and modern fleet, Emirates flies to more than 150 destinations across 80 countries.",
-      image: "https://images.unsplash.com/photo-1526495124232-a04e1849168c?q=80&w=1000&auto=format&fit=crop",
+      image:
+        "https://content.presspage.com/uploads/2431/1920_Emirates_uses_advanced_navigation_technology_to_increase_cargo_capacity_to_Kabul_1-366820.jpg?10000",
       rating: 4.7,
       reviews: 12500,
       deals: [
@@ -30,14 +38,16 @@ function getAirlineData(slug: string) {
           discount: "15% Off",
           description: "Economy and Business class to Dubai",
           expiry: "Valid until June 30, 2025",
-          image: "https://images.unsplash.com/photo-1526495124232-a04e1849168c?q=80&w=500&auto=format&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1526495124232-a04e1849168c?q=80&w=500&auto=format&fit=crop",
         },
         {
           title: "Asia Explorer",
           discount: "10% Off",
           description: "Routes to Southeast Asia",
           expiry: "Valid until May 15, 2025",
-          image: "https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?q=80&w=500&auto=format&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?q=80&w=500&auto=format&fit=crop",
         },
       ],
       popularRoutes: [
@@ -48,15 +58,21 @@ function getAirlineData(slug: string) {
     },
     delta: {
       name: "Delta Air Lines",
-      logo: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?q=80&w=200&auto=format&fit=crop",
+      logo: "https://images.squarespace-cdn.com/content/v1/63e01c10437ad70adfeef14d/1729132492217-CCVCU443F2HJFB2HWCSK/airline_alliance_cover-2.png",
       alliance: "SkyTeam",
-      hubs: ["Atlanta (ATL)", "Detroit (DTW)", "Los Angeles (LAX)", "New York (JFK)"],
+      hubs: [
+        "Atlanta (ATL)",
+        "Detroit (DTW)",
+        "Los Angeles (LAX)",
+        "New York (JFK)",
+      ],
       destinations: 325,
       fleet: 850,
       founded: 1924,
       description:
         "Delta Air Lines is one of the major airlines of the United States and a legacy carrier. Delta operates over 5,400 flights daily and serves 325 destinations in 52 countries. The airline is known for its reliability and customer service.",
-      image: "https://images.unsplash.com/photo-1503891450247-ee5f8ec46dc3?q=80&w=1000&auto=format&fit=crop",
+      image:
+        "https://aivivu.com/wp-content/uploads/2024/03/Gioi-thieu-ve-hang-hang-khong-Delta-Airlines.webp",
       rating: 4.5,
       reviews: 18700,
       deals: [
@@ -65,7 +81,8 @@ function getAirlineData(slug: string) {
           discount: "12% Off",
           description: "US to Europe routes",
           expiry: "Valid until July 31, 2025",
-          image: "https://images.unsplash.com/photo-1503891450247-ee5f8ec46dc3?q=80&w=500&auto=format&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1503891450247-ee5f8ec46dc3?q=80&w=500&auto=format&fit=crop",
         },
       ],
       popularRoutes: [
@@ -76,7 +93,7 @@ function getAirlineData(slug: string) {
     },
     "singapore-airlines": {
       name: "Singapore Airlines",
-      logo: "https://images.unsplash.com/photo-1583511380487-b5e348837783?q=80&w=200&auto=format&fit=crop",
+      logo: "https://play-lh.googleusercontent.com/I9LVlwtRDLATvtXg8uO_LzQxVb-b6W7CbOgqs9YjIxMpWSL3N3jRnerv7spVz9DoMqo=w600-h300-pc0xffffff-pd",
       alliance: "Star Alliance",
       hubs: ["Singapore (SIN)"],
       destinations: 137,
@@ -84,7 +101,8 @@ function getAirlineData(slug: string) {
       founded: 1947,
       description:
         "Singapore Airlines is the flag carrier of Singapore with its hub at Singapore Changi Airport. The airline is known for its high-quality service and has consistently ranked as one of the best airlines in the world.",
-      image: "https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?q=80&w=1000&auto=format&fit=crop",
+      image:
+        "https://res.cloudinary.com/enchanting/q_70,f_auto,c_fill,g_face/hj-web/2020/10/300049-Singapore-Airlines-A380-Inflight-002.jpg",
       rating: 4.8,
       reviews: 15300,
       deals: [
@@ -93,7 +111,8 @@ function getAirlineData(slug: string) {
           discount: "10% Off",
           description: "All routes to Southeast Asia",
           expiry: "Valid until May 15, 2025",
-          image: "https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?q=80&w=500&auto=format&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?q=80&w=500&auto=format&fit=crop",
         },
       ],
       popularRoutes: [
@@ -102,24 +121,26 @@ function getAirlineData(slug: string) {
         { from: "Tokyo", to: "Singapore", price: "$399" },
       ],
     },
-  }
+  };
 
-  return airlines[slug as keyof typeof airlines] || null
+  return airlines[slug as keyof typeof airlines] || null;
 }
 
 export default function AirlinePage({ params }: { params: { slug: string } }) {
-  const airline = getAirlineData(params.slug)
+  const airline = getAirlineData(params.slug);
 
   if (!airline) {
     return (
       <div className="container px-4 py-12 md:px-6 md:py-24 flex flex-col items-center justify-center">
         <h1 className="text-3xl font-bold mb-4">Airline Not Found</h1>
-        <p className="text-muted-foreground mb-8">The airline you're looking for doesn't exist or has been removed.</p>
+        <p className="text-muted-foreground mb-8">
+          The airline you're looking for doesn't exist or has been removed.
+        </p>
         <Button asChild>
           <Link href="/airlines">View All Airlines</Link>
         </Button>
       </div>
-    )
+    );
   }
 
   return (
@@ -137,7 +158,9 @@ export default function AirlinePage({ params }: { params: { slug: string } }) {
         <div>
           <h1 className="text-3xl font-bold tracking-tight">{airline.name}</h1>
           <div className="flex flex-wrap gap-2 mt-2">
-            {airline.alliance !== "None" && <Badge variant="outline">{airline.alliance}</Badge>}
+            {airline.alliance !== "None" && (
+              <Badge variant="outline">{airline.alliance}</Badge>
+            )}
             <div className="flex items-center text-sm text-muted-foreground">
               <Star className="h-4 w-4 text-yellow-500 mr-1" />
               <span>
@@ -151,7 +174,12 @@ export default function AirlinePage({ params }: { params: { slug: string } }) {
       <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
         <div className="space-y-6">
           <div className="relative h-[300px] rounded-lg overflow-hidden">
-            <Image src={airline.image || "/placeholder.svg"} alt={airline.name} fill className="object-cover" />
+            <Image
+              src={airline.image || "/placeholder.svg"}
+              alt={airline.name}
+              fill
+              className="object-cover"
+            />
           </div>
 
           <Tabs defaultValue="overview">
@@ -163,7 +191,9 @@ export default function AirlinePage({ params }: { params: { slug: string } }) {
 
             <TabsContent value="overview" className="space-y-6 pt-4">
               <div>
-                <h2 className="text-xl font-semibold mb-2">About {airline.name}</h2>
+                <h2 className="text-xl font-semibold mb-2">
+                  About {airline.name}
+                </h2>
                 <p className="text-muted-foreground">{airline.description}</p>
               </div>
 
@@ -232,7 +262,9 @@ export default function AirlinePage({ params }: { params: { slug: string } }) {
                     </CardHeader>
                     <CardFooter>
                       <Button size="sm" className="w-full" asChild>
-                        <Link href={`/flights/search?from=${route.from}&to=${route.to}&airline=${airline.name}`}>
+                        <Link
+                          href={`/flights/search?from=${route.from}&to=${route.to}&airline=${airline.name}`}
+                        >
                           Search Flights
                         </Link>
                       </Button>
@@ -243,7 +275,9 @@ export default function AirlinePage({ params }: { params: { slug: string } }) {
 
               <div className="flex justify-center mt-4">
                 <Button variant="outline" asChild>
-                  <Link href={`/flights/search?airline=${airline.name}`}>View All Routes</Link>
+                  <Link href={`/flights/search?airline=${airline.name}`}>
+                    View All Routes
+                  </Link>
                 </Button>
               </div>
             </TabsContent>
@@ -256,11 +290,17 @@ export default function AirlinePage({ params }: { params: { slug: string } }) {
                     {[1, 2, 3, 4, 5].map((star) => (
                       <Star
                         key={star}
-                        className={`h-5 w-5 ${star <= Math.floor(airline.rating) ? "fill-current text-yellow-500" : "text-muted"}`}
+                        className={`h-5 w-5 ${
+                          star <= Math.floor(airline.rating)
+                            ? "fill-current text-yellow-500"
+                            : "text-muted"
+                        }`}
                       />
                     ))}
                   </div>
-                  <p className="text-sm text-muted-foreground">Based on {airline.reviews.toLocaleString()} reviews</p>
+                  <p className="text-sm text-muted-foreground">
+                    Based on {airline.reviews.toLocaleString()} reviews
+                  </p>
                 </div>
               </div>
 
@@ -289,14 +329,20 @@ export default function AirlinePage({ params }: { params: { slug: string } }) {
                     <CardHeader>
                       <div className="flex justify-between items-start">
                         <div>
-                          <CardTitle className="text-base">{review.name}</CardTitle>
+                          <CardTitle className="text-base">
+                            {review.name}
+                          </CardTitle>
                           <CardDescription>{review.date}</CardDescription>
                         </div>
                         <div className="flex">
                           {[1, 2, 3, 4, 5].map((star) => (
                             <Star
                               key={star}
-                              className={`h-4 w-4 ${star <= review.rating ? "fill-current text-yellow-500" : "text-muted"}`}
+                              className={`h-4 w-4 ${
+                                star <= review.rating
+                                  ? "fill-current text-yellow-500"
+                                  : "text-muted"
+                              }`}
                             />
                           ))}
                         </div>
@@ -320,21 +366,34 @@ export default function AirlinePage({ params }: { params: { slug: string } }) {
           <Card>
             <CardHeader>
               <CardTitle>Current Deals</CardTitle>
-              <CardDescription>Special offers from {airline.name}</CardDescription>
+              <CardDescription>
+                Special offers from {airline.name}
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               {airline.deals.map((deal, index) => (
                 <div key={index} className="flex gap-4">
                   <div className="relative h-20 w-20 flex-shrink-0 rounded-md overflow-hidden">
-                    <Image src={deal.image || "/placeholder.svg"} alt={deal.title} fill className="object-cover" />
+                    <Image
+                      src={deal.image || "/placeholder.svg"}
+                      alt={deal.title}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <div className="flex-1">
                     <div className="flex justify-between">
                       <h3 className="font-medium">{deal.title}</h3>
-                      <Badge className="bg-red-500 hover:bg-red-600">{deal.discount}</Badge>
+                      <Badge className="bg-red-500 hover:bg-red-600">
+                        {deal.discount}
+                      </Badge>
                     </div>
-                    <p className="text-sm text-muted-foreground">{deal.description}</p>
-                    <p className="text-xs text-muted-foreground mt-1">{deal.expiry}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {deal.description}
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      {deal.expiry}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -356,21 +415,27 @@ export default function AirlinePage({ params }: { params: { slug: string } }) {
                 <Award className="h-8 w-8 text-sky-600" />
                 <div>
                   <h3 className="font-medium">Earn Miles</h3>
-                  <p className="text-sm text-muted-foreground">Earn 1 mile per mile flown</p>
+                  <p className="text-sm text-muted-foreground">
+                    Earn 1 mile per mile flown
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 <Shield className="h-8 w-8 text-sky-600" />
                 <div>
                   <h3 className="font-medium">Status Match</h3>
-                  <p className="text-sm text-muted-foreground">Match your existing status</p>
+                  <p className="text-sm text-muted-foreground">
+                    Match your existing status
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 <Globe className="h-8 w-8 text-sky-600" />
                 <div>
                   <h3 className="font-medium">Alliance Benefits</h3>
-                  <p className="text-sm text-muted-foreground">Enjoy benefits across all partner airlines</p>
+                  <p className="text-sm text-muted-foreground">
+                    Enjoy benefits across all partner airlines
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -398,6 +463,5 @@ export default function AirlinePage({ params }: { params: { slug: string } }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

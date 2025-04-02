@@ -1,82 +1,84 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import Image from "next/image"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useRef } from "react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const airlineLogos = [
   {
     name: "Emirates",
-    logo: "https://images.unsplash.com/photo-1540339832862-474599807836?q=80&w=200&auto=format&fit=crop",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Emirates_logo.svg/850px-Emirates_logo.svg.png?q=80&w=200&auto=format&fit=crop",
   },
   {
     name: "Singapore Airlines",
-    logo: "https://images.unsplash.com/photo-1583511380487-b5e348837783?q=80&w=200&auto=format&fit=crop",
+    logo: "https://i.pinimg.com/originals/8f/a3/ba/8fa3bab1786cee705e20b5d32cca5ab2.jpg?q=80&w=200&auto=format&fit=crop",
   },
   {
     name: "Delta",
-    logo: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?q=80&w=200&auto=format&fit=crop",
+    logo: "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0011/6343/brand.gif?itok=iSd6wBZZ",
   },
   {
     name: "Lufthansa",
-    logo: "https://images.unsplash.com/photo-1540339832862-474599807836?q=80&w=200&auto=format&fit=crop",
+    logo: "https://s.pilotsglobal.com/img/3/b/b/0/8/3bb08d41b60054cc4ed5b4bada0a7e1b.svg",
   },
   {
     name: "Qatar Airways",
-    logo: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=200&auto=format&fit=crop",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw7HLjWJ68NPeAaD9kXjGad1LROdcWHJj_tw&s",
   },
   {
     name: "British Airways",
-    logo: "https://images.unsplash.com/photo-1583511380487-b5e348837783?q=80&w=200&auto=format&fit=crop",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNp8EmoVrOGN5M6Bc_qGizBYlYW190xCHALQ&s",
   },
   {
     name: "Air France",
-    logo: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?q=80&w=200&auto=format&fit=crop",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb-VcKXn2_IQFcoPsRctKazojHYuSD2AvZww&s",
   },
   {
     name: "KLM",
-    logo: "https://images.unsplash.com/photo-1540339832862-474599807836?q=80&w=200&auto=format&fit=crop",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrFftovudrgfqjvHyqXZrGLGJ2ukNDPjWuwA&s",
   },
   {
     name: "United",
-    logo: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=200&auto=format&fit=crop",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh834z5G6nsuQF07Ow_2na_pvALvItKBPBKg&s",
   },
   {
     name: "American Airlines",
-    logo: "https://images.unsplash.com/photo-1583511380487-b5e348837783?q=80&w=200&auto=format&fit=crop",
+    logo: "https://s202.q4cdn.com/986123435/files/doc_downloads/logos/american-airlines/THUMB-aa_aa__ahz_4cp_grd_pos-(1).png",
   },
   {
     name: "Qantas",
-    logo: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?q=80&w=200&auto=format&fit=crop",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUbFv1UPyitpkDpMjsQiyRCzo1jZAbQvFTeA&s",
   },
   {
     name: "Cathay Pacific",
-    logo: "https://images.unsplash.com/photo-1540339832862-474599807836?q=80&w=200&auto=format&fit=crop",
+    logo: "https://brandlogos.net/wp-content/uploads/2014/01/cathay-pacific-air-vector-logo.png",
   },
-]
+];
 
 export default function AirlinePartners() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -200, behavior: "smooth" })
+      scrollContainerRef.current.scrollBy({ left: -200, behavior: "smooth" });
     }
-  }
+  };
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 200, behavior: "smooth" })
+      scrollContainerRef.current.scrollBy({ left: 200, behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <section className="w-full py-12 md:py-16 bg-white">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Our Airline Partners</h2>
+            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+              Our Airline Partners
+            </h2>
             <p className="max-w-[700px] text-muted-foreground md:text-xl">
               Seamless bookings with 100+ airline partners worldwide
             </p>
@@ -99,14 +101,17 @@ export default function AirlinePartners() {
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
               {airlineLogos.map((airline, index) => (
-                <div key={index} className="flex flex-col items-center space-y-2 flex-shrink-0 snap-start">
-                  <div className="w-32 h-32 rounded-lg border flex items-center justify-center p-4 bg-white shadow-sm overflow-hidden">
+                <div
+                  key={index}
+                  className="flex flex-col items-center space-y-2 flex-shrink-0 snap-start"
+                >
+                  <div className="w-40 h-40 rounded-lg border flex items-center justify-center bg-white shadow-sm overflow-hidden">
                     <Image
                       src={airline.logo || "/placeholder.svg"}
-                      width={80}
-                      height={80}
+                      width={160}
+                      height={160}
                       alt={`${airline.name} logo`}
-                      className="object-contain"
+                      className="w-full h-full object-cover"
                     />
                   </div>
                   <span className="text-sm font-medium">{airline.name}</span>
@@ -136,6 +141,5 @@ export default function AirlinePartners() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { useState } from "react";
+import Link from "next/link";
+import { Menu, X, ChevronDown } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,11 +12,11 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import Logo from "@/components/ui/logo"
+} from "@/components/ui/dropdown-menu";
+import Logo from "@/components/ui/logo";
 
 export default function MainHeader() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -26,7 +26,10 @@ export default function MainHeader() {
         <nav className="hidden md:flex gap-6">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="link" className="flex items-center gap-1 h-auto p-0">
+              <Button
+                variant="link"
+                className="flex items-center gap-1 h-auto p-0"
+              >
                 Flights <ChevronDown className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
@@ -45,7 +48,10 @@ export default function MainHeader() {
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="link" className="flex items-center gap-1 h-auto p-0">
+              <Button
+                variant="link"
+                className="flex items-center gap-1 h-auto p-0"
+              >
                 Airlines <ChevronDown className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
@@ -65,14 +71,19 @@ export default function MainHeader() {
                 <Link href="/airlines/delta">Delta</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="/airlines/singapore-airlines">Singapore Airlines</Link>
+                <Link href="/airlines/singapore-airlines">
+                  Singapore Airlines
+                </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="link" className="flex items-center gap-1 h-auto p-0">
+              <Button
+                variant="link"
+                className="flex items-center gap-1 h-auto p-0"
+              >
                 SkyRewards <ChevronDown className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
@@ -81,7 +92,7 @@ export default function MainHeader() {
                 <Link href="/rewards">Program Overview</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="/rewards/tiers">Membership Tiers</Link>
+                <Link href="/rewards/tier">Membership Tiers</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/rewards/calculator">Miles Calculator</Link>
@@ -92,17 +103,26 @@ export default function MainHeader() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Link href="/business" className="text-sm font-medium hover:text-sky-700">
+          <Link
+            href="/business"
+            className="text-sm font-medium hover:text-sky-700"
+          >
             Business Travel
           </Link>
-          <Link href="/support" className="text-sm font-medium hover:text-sky-700">
+          <Link
+            href="/support"
+            className="text-sm font-medium hover:text-sky-700"
+          >
             Support
           </Link>
         </nav>
 
         <div className="flex items-center gap-4">
           <div className="hidden md:flex items-center gap-4">
-            <Link href="/account/login" className="text-sm font-medium hover:text-sky-700">
+            <Link
+              href="/account/login"
+              className="text-sm font-medium hover:text-sky-700"
+            >
               Sign In
             </Link>
             <Button asChild>
@@ -110,7 +130,12 @@ export default function MainHeader() {
             </Button>
           </div>
 
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileMenuOpen(true)}>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={() => setMobileMenuOpen(true)}
+          >
             <Menu className="h-6 w-6" />
             <span className="sr-only">Open menu</span>
           </Button>
@@ -122,7 +147,11 @@ export default function MainHeader() {
         <div className="fixed inset-0 z-50 bg-background md:hidden">
           <div className="container flex h-16 items-center justify-between">
             <Logo />
-            <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)}>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setMobileMenuOpen(false)}
+            >
               <X className="h-6 w-6" />
               <span className="sr-only">Close menu</span>
             </Button>
@@ -158,7 +187,11 @@ export default function MainHeader() {
             <div className="grid gap-3">
               <h3 className="text-lg font-semibold">Airlines</h3>
               <div className="grid gap-2">
-                <Link href="/airlines" className="text-sm hover:underline" onClick={() => setMobileMenuOpen(false)}>
+                <Link
+                  href="/airlines"
+                  className="text-sm hover:underline"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   All Airlines
                 </Link>
                 <Link
@@ -188,11 +221,15 @@ export default function MainHeader() {
             <div className="grid gap-3">
               <h3 className="text-lg font-semibold">SkyRewards</h3>
               <div className="grid gap-2">
-                <Link href="/rewards" className="text-sm hover:underline" onClick={() => setMobileMenuOpen(false)}>
+                <Link
+                  href="/rewards"
+                  className="text-sm hover:underline"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   Program Overview
                 </Link>
                 <Link
-                  href="/rewards/tiers"
+                  href="/rewards/tier"
                   className="text-sm hover:underline"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -227,12 +264,18 @@ export default function MainHeader() {
 
             <div className="flex flex-col gap-4 mt-4">
               <Button asChild variant="outline" className="w-full">
-                <Link href="/account/login" onClick={() => setMobileMenuOpen(false)}>
+                <Link
+                  href="/account/login"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   Sign In
                 </Link>
               </Button>
               <Button asChild className="w-full">
-                <Link href="/account/register" onClick={() => setMobileMenuOpen(false)}>
+                <Link
+                  href="/account/register"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   Register
                 </Link>
               </Button>
@@ -241,6 +284,5 @@ export default function MainHeader() {
         </div>
       )}
     </header>
-  )
+  );
 }
-
